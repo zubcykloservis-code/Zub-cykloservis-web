@@ -123,4 +123,192 @@
                         <strong id="resBike" class="text-gray-200">--</strong>
                     </div>
                     <div>
-                        <span class
+                        <span class="text-gray-500 block text-xs">Orientačná cena</span>
+                        <strong id="resPrice" class="text-gold">--</strong>
+                    </div>
+                </div>
+
+                <div class="pt-8">
+                    <h5 class="text-xs uppercase tracking-widest text-gray-400 mb-6 font-semibold">Časová os opravy</h5>
+                    <div id="timelineContainer" class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-[2px] before:bg-gray-800">
+                    </div>
+                </div>
+            </div>
+
+            <div id="noResult" class="text-center text-gray-500 py-8 hidden">
+                Zadané číslo zákazky nebolo nájdené. Skontrolujte prosím zadaný tvar (napr. ZUB-1042).
+            </div>
+        </div>
+    </section>
+
+    <!-- Cenník -->
+    <section id="cennik" class="py-16 px-4 bg-cardbg/50 border-b border-gray-900">
+        <div class="max-w-5xl mx-auto">
+            <h3 class="text-center text-2xl font-serif mb-12 tracking-wide text-gold">Cenník služieb</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-cardbg border border-gray-800 p-6 rounded-lg text-center hover:border-gold/50 transition">
+                    <div class="text-3xl mb-4">🛠️</div>
+                    <h4 class="font-bold text-lg mb-2">Základný Servis</h4>
+                    <p class="text-gray-400 text-sm mb-4">Kompletná kontrola, dotiahnutie spojov, premazanie reťaze a sekanie.</p>
+                    <div class="text-gold font-bold text-xl">od 30 €</div>
+                </div>
+                <div class="bg-cardbg border border-gold/40 p-6 rounded-lg text-center relative shadow-lg">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gold text-black text-xs uppercase font-bold px-3 py-1 rounded">
+                        Najobľúbenejšie
+                    </div>
+                    <div class="text-3xl mb-4">🛡️</div>
+                    <h4 class="font-bold text-lg mb-2">Kompletný Garančný Servis</h4>
+                    <p class="text-gray-400 text-sm mb-4">Generálna údržba, centrovanie kolies, odvzdušnenie bŕzd, nastavenie pohonu.</p>
+                    <div class="text-gold font-bold text-xl">od 60 €</div>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-6 rounded-lg text-center hover:border-gold/50 transition">
+                    <div class="text-3xl mb-4">🚐</div>
+                    <h4 class="font-bold text-lg mb-2">Mobilný Servis & Odvoz</h4>
+                    <p class="text-gray-400 text-sm mb-4">Vyzdvihnutie bicykla u vás doma a doručenie späť po servise.</p>
+                    <div class="text-gold font-bold text-xl">Dohodou / podľa KM</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O nás -->
+    <section id="onas" class="py-16 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h3 class="text-2xl font-serif mb-6 text-gold">O nás</h3>
+            <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+                Profesionálny servis bicyklov s dôrazom na maximálnu precíznosť, individuálny prístup a špičkové náradie. Staráme sa o váš bicykel s tou najvyššou starostlivosťou, aby ste si jazdu užili bez starostí.
+            </p>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="py-16 px-4 bg-cardbg border-t border-gray-900">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+                <h3 class="text-2xl font-serif mb-6 text-gold">Kontaktujte nás</h3>
+                <p class="text-gray-400 text-sm mb-6">
+                    Zavolajte nám na <strong class="text-white">+421 949 091 343</strong> alebo napíšte na <strong class="text-white">zub.cykloservis@gmail.com</strong>.
+                </p>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <div><strong class="text-gold">Fakturačná adresa:</strong> Drietoma 771, 913 03</div>
+                    <div><strong class="text-gold">IČO:</strong> 56842066</div>
+                    <div><strong class="text-gold">Prevádzka:</strong> Pripravuje sa (čaká sa na kolaudáciu)</div>
+                </div>
+            </div>
+            <div class="bg-black/40 p-6 rounded-lg border border-gray-800">
+                <h4 class="font-bold mb-4 text-white">Rýchly dopyt termínu</h4>
+                <form onsubmit="event.preventDefault(); alert('Ďakujeme! Vaša požiadavka bola odoslaná.');" class="space-y-4">
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Vaše Meno</label>
+                        <input type="text" required placeholder="Ján Novák" class="w-full bg-darkbg border border-gray-700 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Telefón / Email</label>
+                        <input type="text" required placeholder="+421 900 000 000" class="w-full bg-darkbg border border-gray-700 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                    <button type="submit" class="w-full bg-gold text-black font-semibold py-2 rounded hover:bg-gold-light transition">
+                        Odoslať dopyt
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-xs text-gray-500 border-t border-gray-900">
+        <p>&copy; 2026 ZUB CYKLOSERVIS. Všetky práva vyhradené.</p>
+    </footer>
+
+    <!-- JavaScript pre živé ťahanie dát z Google Sheets cez vašu Web App URL -->
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykX1KJ-tH7a14T7P1s8bgVEtlkkJq7XFCV0bIVkCcQ7iFfFyqBkCEoOYD-_IFSQ_WB1g/exec';
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        async function checkOrder() {
+            const query = document.getElementById('orderInput').value.trim();
+            const btn = document.getElementById('searchBtn');
+            if (!query) return;
+
+            btn.innerText = 'Hľadám...';
+            
+            try {
+                const response = await fetch(`${SCRIPT_URL}?q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+
+                const resultBox = document.getElementById('orderResult');
+                const noResultBox = document.getElementById('noResult');
+
+                if (data.found) {
+                    resultBox.classList.remove('hidden');
+                    noResultBox.classList.add('hidden');
+
+                    document.getElementById('resOrderNumber').innerText = data.orderNumber;
+                    document.getElementById('resCustomer').innerText = data.customer;
+                    document.getElementById('resBike').innerText = data.bike;
+                    document.getElementById('resPrice').innerText = data.price;
+
+                    const badge = document.getElementById('resBadge');
+                    badge.innerText = data.status;
+
+                    renderTimeline(data.step);
+                } else {
+                    resultBox.classList.add('hidden');
+                    noResultBox.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Chyba pri načítavaní:', error);
+                alert('Nepodarilo sa pripojiť k databáze zákaziek.');
+            } finally {
+                btn.innerText = 'Vyhľadať';
+            }
+        }
+
+        function renderTimeline(currentStep) {
+            const container = document.getElementById('timelineContainer');
+            container.innerHTML = '';
+
+            const stepsData = [
+                { title: "1. Prijaté do servisu", desc: "Bicykel bol zaevidovaný do systému." },
+                { title: "2. Prebieha servis", desc: "Realizujú sa dohodnuté servisné práce." },
+                { title: "3. Testovanie & Kontrola", desc: "Záverečná kontrola funkčnosti a bezpečnosti." },
+                { title: "4. Pripravené na odovzdanie", desc: "Bicykel je pripravený na vyzdvihnutie." }
+            ];
+
+            stepsData.forEach((s, index) => {
+                const stepNum = index + 1;
+                const isCompleted = stepNum < currentStep;
+                const isCurrent = stepNum === currentStep;
+
+                let dotBg = 'bg-gray-800 border-gray-700 text-gray-500';
+                let titleColor = 'text-gray-400';
+                let descColor = 'text-gray-500';
+
+                if (isCompleted) {
+                    dotBg = 'bg-gold border-gold text-black';
+                    titleColor = 'text-gray-200';
+                    descColor = 'text-gray-400';
+                } else if (isCurrent) {
+                    dotBg = 'bg-gold border-gold text-black ring-4 ring-gold/20';
+                    titleColor = 'text-gold font-bold';
+                    descColor = 'text-gray-300';
+                }
+
+                const item = document.createElement('div');
+                item.className = 'flex items-start gap-4 relative z-10';
+                item.innerHTML = `
+                    <div class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold ${dotBg}">
+                        ${isCompleted ? '✓' : stepNum}
+                    </div>
+                    <div>
+                        <h6 class="text-sm ${titleColor}">${s.title}</h6>
+                        <p class="text-xs ${descColor} mt-0.5">${s.desc}</p>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>
