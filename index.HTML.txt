@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sk" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZUB CYKLOSERVIS | Profesionálny servis bicyklov</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#c5a059', dark: '#a88542', light: '#dfbe7a' },
+                        darkbg: '#0f0f0f',
+                        cardbg: '#181818'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-100 min-h-screen antialiased selection:bg-gold selection:text-black">
+
+    <!-- Top Admin / Customer Bar -->
+    <header class="bg-black/80 border-b border-gray-800 text-xs py-2 px-4 sticky top-0 z-50 backdrop-blur">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-2 text-gray-400">
+                <span class="inline-block w-2 h-2 rounded-full bg-gold"></span>
+                <span>ZUB Systém v1.0</span>
+                <span>|</span>
+                <span>Fakturačná adresa: Drietoma 771</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="scrollToSection('uvod')" class="bg-gold text-black font-semibold px-3 py-1 rounded shadow-sm hover:bg-gold-light transition">Zákaznícky Web</button>
+                <button onclick="scrollToSection('sledovanie')" class="text-gray-300 hover:text-white px-3 py-1 transition border border-gray-700 rounded">Sledovanie zákazky</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero / Brand Header -->
+    <section id="uvod" class="py-12 px-4 text-center border-b border-gray-900 bg-gradient-to-b from-black to-darkbg">
+        <div class="max-w-4xl mx-auto">
+            <!-- Logo Section bez rámčeka -->
+            <div class="inline-block my-6">
+                <div class="flex flex-col items-center">
+                    <div class="flex items-center justify-center gap-3 my-1">
+                        <div class="h-[1px] w-12 sm:w-20 bg-gold"></div>
+                        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-wider text-white">
+                            ZUB <span class="font-light text-gray-200">CYKLOSERVIS</span>
+                        </h1>
+                        <div class="h-[1px] w-12 sm:w-20 bg-gold"></div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="flex justify-center gap-6 sm:gap-10 text-sm uppercase tracking-widest text-gray-400 my-6">
+                <a href="#uvod" class="hover:text-gold transition">Úvod</a>
+                <a href="#cennik" class="hover:text-gold transition">Cenník</a>
+                <a href="#sledovanie" class="hover:text-gold transition">Sledovanie zákazky</a>
+                <a href="#onas" class="hover:text-gold transition">O nás</a>
+                <a href="#kontakt" class="hover:text-gold transition">Kontakt</a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Content -->
+    <section class="py-16 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-serif italic mb-6 text-gray-100">
+                Objednajte sa na servis z pohodlia domova
+            </h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                Aby sa vášmu bicyklu mohli venovať na 100 %, servis funguje len na objednávku. Rezervujte si svoj čas online alebo telefonicky.
+            </p>
+            <a href="#kontakt" class="inline-block bg-gold hover:bg-gold-light text-black font-bold uppercase tracking-wider px-8 py-4 rounded-md shadow-lg transition transform hover:-translate-y-0.5">
+                Chcem termín
+            </a>
+        </div>
+    </section>
+
+    <!-- INTERAKTÍVNA SEKCIA: Sledovanie zákazky (Prepojená s Google Sheets) -->
+    <section id="sledovanie" class="py-16 px-4 bg-black/60 border-y border-gray-900">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-center text-2xl font-serif mb-8 text-gold">Sledovanie stavu opravy</h3>
+            
+            <div class="bg-cardbg border border-gray-800 p-6 rounded-lg mb-8 shadow-xl">
+                <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Zadajte číslo zákazky</label>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="text" id="orderInput" placeholder="napr. ZUB-1042" class="flex-1 bg-darkbg border border-gray-700 rounded px-4 py-3 text-white uppercase tracking-wider focus:outline-none focus:border-gold">
+                    <button onclick="checkOrder()" id="searchBtn" class="bg-gold text-black font-bold px-6 py-3 rounded hover:bg-gold-light transition uppercase tracking-wider text-sm">
+                        Vyhľadať
+                    </button>
+                </div>
+            </div>
+
+            <!-- Výsledok vyhľadávania -->
+            <div id="orderResult" class="bg-cardbg border border-gold/40 rounded-lg p-6 sm:p-8 shadow-2xl hidden">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-gray-800 gap-4">
+                    <div>
+                        <span class="text-xs uppercase text-gray-400 tracking-wider">Číslo zákazky</span>
+                        <h4 id="resOrderNumber" class="text-2xl font-extrabold text-white tracking-wide">--</h4>
+                    </div>
+                    <div>
+                        <span id="resBadge" class="bg-gold/20 text-gold border border-gold/40 text-xs font-bold uppercase px-3 py-1.5 rounded">
+                            --
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 py-6 border-b border-gray-800 text-sm">
+                    <div>
+                        <span class="text-gray-500 block text-xs">Zákazník</span>
+                        <strong id="resCustomer" class="text-gray-200">--</strong>
+                    </div>
+                    <div>
+                        <span class="text-gray-500 block text-xs">Bicykel</span>
+                        <strong id="resBike" class="text-gray-200">--</strong>
+                    </div>
+                    <div>
+                        <span class
